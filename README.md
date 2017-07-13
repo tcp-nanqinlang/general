@@ -1,24 +1,51 @@
-»ùÓÚÓµÈû¿ØÖÆ¼¼Êõ Tcp_bbr (ÔÚ´ËÓÉÖÔ¸ĞĞ»Ô­×÷ÕßµÈ¿ª·¢Õß´óÀĞÃÇ)
-ÉÔÎ¢ÎÂºÍµãµÄÄ§¸Ä by ÄÏÇÙÀË
-Ä§¸ÄÔ´Âë tcp_nanqinlang.c
-Ä§¸ÄÄ£¿é tcp_nanqinlang.ko
-Ä£¿éºÍ½Å±¾»ùÓÚ Debian Kernel Version v4.11.0
+åŸºäºæ‹¥å¡æ§åˆ¶æŠ€æœ¯ Tcp_bbr (åœ¨æ­¤ç”±è¡·æ„Ÿè°¢åŸä½œè€…ç­‰å¼€å‘è€…å¤§ä½¬ä»¬)
 
-tcp_nanqinlang.sh Ò»¼ü½Å±¾ 1.0beta
+ç¨å¾®æ¸©å’Œç‚¹çš„ é­”æ”¹BBR by å—ç´æµª
 
-ÓÃ·¨:
+é­”æ”¹æºç  tcp_nanqinlang.c
+
+é­”æ”¹æ¨¡å— tcp_nanqinlang.ko
+
+æ¨¡å—å’Œè„šæœ¬åŸºäº Debian Kernel Version v4.11.0
+
+tcp_nanqinlang.sh ä¸€é”®è„šæœ¬ 1.0beta
+
+é€‚ç”¨äºDebian 7+/Ubuntu 14+
+
+è¯·æ³¨æ„1.0ç‰ˆæœ¬ç›®å‰installåŠŸèƒ½ä»…æä¾›v4.11.0ç‰ˆæœ¬å†…æ ¸å®‰è£… è¯·ç•™æ„è‡ªå·±çš„ç³»ç»Ÿæ˜¯å¦æ”¯æŒè¯¥ç‰ˆæœ¬ åç»­æ›´æ–°ä¼šæä¾›ç‰ˆæœ¬è‡ªå®šä¹‰
+
+ç”¨æ³•:
 
 wget https://raw.githubusercontent.com/sinderyminami/tcp_nanqinlang/master/tcp_nanqinlang.sh && bash tcp_nanqinlang.sh ${command}
 
 command: { install | start | stop | status }
 
-1.°²×°ÄÚºË bash tcp_nanqinlang.sh install
-2.ÆôÓÃËã·¨ bash tcp_nanqinlang.sh start
-3.ÔËĞĞ×´Ì¬ bash tcp_nanqinlang.sh status
-4.Í£ÓÃËã·¨ bash tcp_nanqinlang.sh stop
+1.å®‰è£…å†…æ ¸ bash tcp_nanqinlang.sh install
 
-ËµÃ÷:
-ÔËĞĞ install ¹ı³ÌÖĞ »á´´½¨ /root/tcp_nanqinlang ²¢ÏÂÔØ Èı¸öÄÚºË°ü: image / headers.amd64»òi386 / headers.all
-ÔËĞĞ install ¹ı³ÌÖĞ sysctl.conf»á¸²¸ÇÎªÎÒÔÚ½Å±¾ÄÚÔ¤ÖÃµÄ /etc/sysctl.conf
-ÔËĞĞ start   ¹ı³ÌÖĞ »á½« tcp_nanqinlang.ko ·Åµ½ /root/tcp_nanqinlang ²¢¼ÓÔØ¸ÃÄ£¿é, Ëæºó¿ÉÊ¹ÓÃ status ÃüÁîÅĞ¶ÏÊÇ·ñ³É¹¦ÆôÓÃ
-ÔËĞĞ ½Å±¾    ºó     »áÉú³ÉÈÕÖ¾ÎÄ¼ş /root/tcp_nanqinlang.log
+2.å¯ç”¨ç®—æ³• bash tcp_nanqinlang.sh start
+
+3.è¿è¡ŒçŠ¶æ€ bash tcp_nanqinlang.sh status
+
+4.åœç”¨ç®—æ³• bash tcp_nanqinlang.sh stop
+
+è¯´æ˜:
+
+æ¯æ¬¡è¿è¡Œè„šæœ¬åï¼Œä¼šç”Ÿæˆæ—¥å¿—æ–‡ä»¶ /root/tcp_nanqinlang.logï¼Œæ¯æ¬¡è¿è¡Œä¼šè¦†ç›–ä¹‹å‰çš„logï¼Œæ—¥å¿—ä¸»è¦ä½œä¸ºè°ƒè¯•å‚è€ƒ
+
+è¿è¡Œ install è¿‡ç¨‹ä¸­ ä¼šåˆ›å»º /root/tcp_nanqinlang å¹¶ä¸‹è½½ ä¸‰ä¸ªå†…æ ¸åŒ…: image / headers.amd64æˆ–i386 / headers.all
+
+è¿è¡Œ install è¿‡ç¨‹ä¸­ sysctl.confä¼šè¦†ç›–ä¸ºæˆ‘åœ¨è„šæœ¬å†…é¢„ç½®çš„ /etc/sysctl.conf
+
+è¿è¡Œ start   è¿‡ç¨‹ä¸­ ä¼šå°† tcp_nanqinlang.ko æ”¾åˆ° /root/tcp_nanqinlang å¹¶åŠ è½½è¯¥æ¨¡å—, éšåå¯ä½¿ç”¨ status å‘½ä»¤åˆ¤æ–­æ˜¯å¦æˆåŠŸå¯ç”¨
+
+è¿è¡Œ stop    è¿‡ç¨‹å å¹¶ä¸ä¼šåˆ é™¤å·²å®‰è£…çš„å†…æ ¸ï¼Œåªæ˜¯ç§»é™¤äº†sysctl.confé‡Œè®¾ç½®çš„tcp_nanqinlang
+
+è‹¥æœ‰ç–‘æƒ‘/Bugåé¦ˆç­‰è¯·è”ç³»æˆ‘æˆ–è€…issue
+
+åšå®¢https://www.nanqinlang.com
+
+é‚®ç®±administration@nanqinlang.com
+
+Telegram@KotoriHusband
+
+twitter@SinderyMinami
