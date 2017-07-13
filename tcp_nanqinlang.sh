@@ -294,7 +294,6 @@ start_tcp_nanqinlang(){
     sysctl -p
 	sleep 1s
 	tcp_nanqinlang_status
-	echo -e "${Failed} starting failed, please check!"
 }
 
 #stop
@@ -316,7 +315,6 @@ stop_tcp_nanqinlang(){
 status_tcp_nanqinlang(){
 	check_deb
 	tcp_nanqinlang_status
-	echo -e "${Failed} tcp_nanqinlang is not running !"
 }
 
 action=$1
