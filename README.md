@@ -16,7 +16,7 @@ tcp_nanqinlang.sh 一键脚本 1.0beta
 
 用法:
 
-wget https://raw.githubusercontent.com/sinderyminami/tcp_nanqinlang/master/tcp_nanqinlang.sh && bash tcp_nanqinlang.sh ${command}
+wget https://raw.githubusercontent.com/nanqinlang/tcp_nanqinlang/master/tcp_nanqinlang.sh && bash tcp_nanqinlang.sh ${command}
 
 command: { install | start | stop | status }
 
