@@ -153,6 +153,20 @@ install_headers(){
 	fi
 }	
 
+#check running tcp_nanqinlang or not
+tcp_nanqinlang_status(){
+	check_tcp_nanqinlang_status_on=`sysctl net.ipv4.tcp_available_congestion_control | awk '{print $3}'`
+	if [ "${check_tcp_nanqinlang_status_on}" = "nanqinlang" ]; then
+	echo -e "${Info} tcp_nanqinlang is installed!"
+	    check_tcp_nanqinlang_status_off=`lsmod | grep nanqinlang`
+	    if [ "${check_tcp_nanqinlang_status_off}" = "" ]; then
+		    echo -e "${Failed} tcp_nanqinlang is installed but not running!"
+	    else
+		    echo -e "${Success} tcp_nanqinlang is running!"
+	    fi
+	fi
+}
+
 #install tcp_nanqinlang
 install_tcp_nanqinlang(){
 	
@@ -215,8 +229,8 @@ install_tcp_nanqinlang(){
 	
 	update-grub
 	
-#enable tcp_nanqinlang via sysctl
-echo -e "fs.file-max=65535
+	#enable tcp_nanqinlang via sysctl
+	echo -e "fs.file-max=65535
 net.core.wmem_default=34004432
 net.core.wmem_max=67108864
 net.core.rmem_default=34004432
@@ -250,25 +264,11 @@ net.ipv4.tcp_mtu_probing=1
 net.ipv4.tcp_fastopen=3
 net.core.default_qdisc=fq_codel
 net.ipv4.tcp_congestion_control=nanqinlang\c" > /etc/sysctl.conf
-sysctl -p
 
-#reboot part
-echo -e "${Careful} please remember reboot to apply kernel, and subsquently running this command: ${Start}"
-exit
-}
-
-#check running tcp_nanqinlang or not
-tcp_nanqinlang_status(){
-	check_tcp_nanqinlang_status_on=`sysctl net.ipv4.tcp_available_congestion_control | awk '{print $3}'`
-	if [ "${check_tcp_nanqinlang_status_on}" = "nanqinlang" ]; then
-	echo -e "${Info} tcp_nanqinlang is installed!"
-	    check_tcp_nanqinlang_status_off=`lsmod | grep nanqinlang`
-	    if [ "${check_tcp_nanqinlang_status_off}" = "" ]; then
-		    echo -e "${Failed} tcp_nanqinlang is installed but not running!"
-	    else
-		    echo -e "${Success} tcp_nanqinlang is running!"
-	    fi
-	fi
+	sysctl -p
+	#reboot part
+	echo -e "${Careful} please remember reboot to apply kernel, and subsquently running this command: ${Start}"
+    exit
 }
 
 #start
@@ -280,7 +280,7 @@ start_tcp_nanqinlang(){
 		chmod +x ./tcp_nanqinlang.ko
 	    insmod tcp_nanqinlang.ko
     else
-	    wget https://raw.githubusercontent.com/sinderyminami/tcp_nanqinlang/master/tcp_nanqinlang.ko
+	    wget https://raw.githubusercontent.com/nanqinlang/tcp_nanqinlang/master/tcp_nanqinlang.ko
 		echo -e "${Info} mod is downloaded, loading now"
 		chmod +x ./tcp_nanqinlang.ko
 	    insmod tcp_nanqinlang.ko
@@ -298,7 +298,7 @@ stop_tcp_nanqinlang(){
 	rmmod tcp_nanqinlang.ko
 	sysctl -p
 	sleep 1s
-	echo -e "${Careful} please remember reboot to stop tcp_nanqinlang"
+	echo -e "${Info} please remember reboot to stop tcp_nanqinlang"
 	exit
 }
 
@@ -312,8 +312,8 @@ status_tcp_nanqinlang(){
 action=$1
 [ -z $1 ] && action=install
 case "$action" in
-install|start|stop|status)
-${action}_tcp_nanqinlang
-${action}_tcp_nanqinlang 2>&1 | tee /root/tcp_nanqinlang.log
-;;
+	install|start|stop|status)
+	${action}_tcp_nanqinlang
+    ${action}_tcp_nanqinlang 2>&1 | tee /root/tcp_nanqinlang.log
+	;;
 esac
