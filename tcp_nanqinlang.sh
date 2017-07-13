@@ -1,5 +1,6 @@
 #! /bin/bash
-
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
 Green_font="\033[32m" && Yellow_font="\033[33m" && Red_font="\033[31m" && Font_suffix="\033[0m"
 Info="${Green_font}[Info]${Font_suffix}"
 Success="${Green_font}[Success]${Font_suffix}"
@@ -9,12 +10,11 @@ Careful="${Green_font}[Be Careful]${Font_suffix}"
 reboot="${Yellow_font}reboot${Font_suffix}"
 Install="${Yellow_font}bash tcp_nanqinlang.sh install${Font_suffix}"
 Start="${Yellow_font}bash tcp_nanqinlang.sh start${Font_suffix}"
-
-echo -e "${Yellow_font}
+echo -e "${Green_font}
 #========================================================
 # System Required: Debian/Ubuntu
 # Description: tcp_nanqinlang
-# Version: 1.0.1 beta
+# Version: 1.1.1 fake stable
 # Author: nanqinlang
 # Blog:   https://www.nanqinlang.com
 # Github: https://github.com/sinderyminami/tcp_nanqinlang
@@ -186,6 +186,12 @@ check_status(){
 
 #install
 install_tcp_nanqinlang(){
+
+    #check root or not
+    if [ $(id -u) != "0" ]; then
+    echo -e "${Error} must be ${Yellow_font}root${Font_suffix} user"
+    exit 1
+    fi
 	
 	#run check system and determine it's bebian/ubuntu or not
 	check_system
@@ -220,7 +226,8 @@ install_tcp_nanqinlang(){
 	#total digit of kernel without ${latest_version}
 	surplus_total_image="`dpkg -l|grep linux-image | awk '{print $2}' | grep -v "${latest_version}" | wc -l`"
 	surplus_total_headers="`dpkg -l|grep linux-headers | awk '{print $2}' | grep -v "${latest_version}" | wc -l`"
-	
+	mkdir /root/tcp_nanqinlang
+    cd /root/tcp_nanqinlang
 	if [ ${surplus_ver_image} == "${latest_version}" ]; then
 	echo -e "${Info} image already have a latest version"
 		   if [ ${surplus_total_image} != "0" ]; then
@@ -279,12 +286,13 @@ net.ipv4.tcp_congestion_control=nanqinlang\c" > /etc/sysctl.conf
 	sysctl -p
 	#reboot part
 	echo -e "${Careful} please remember after ${reboot}, run ${Start}"
-  exit 0
+    exit 0
 }
 
 #start
 start_tcp_nanqinlang(){
-	cd /root/tcp_nanqinlang
+	mkdir /root/tcp_nanqinlang
+    cd /root/tcp_nanqinlang
 	wget https://raw.githubusercontent.com/nanqinlang/tcp_nanqinlang/master/tcp_nanqinlang.c
     echo -e "${Info} code is downloaded, making now"
 	apt-get update && apt-get install build-essential -y && apt-get update && apt-get install gcc-4.9 make git python -y && apt-get update
@@ -324,11 +332,31 @@ stop_tcp_nanqinlang(){
 	exit 0
 }
 
-action=$1
-[ -z $1 ] && action=install
-case "$action" in
-	install|start|status|upgrade|stop)
-	${action}_tcp_nanqinlang
-    ${action}_tcp_nanqinlang 2>&1 | tee /root/tcp_nanqinlang.log
-	;;
+#${command}_tcp_nanqinlang
+command=$1
+if [ "${command}" = "" ]; then
+    command="status"
+else
+    command=$1
+fi
+case "${command}" in
+	 install)
+     install_tcp_nanqinlang 2>&1 | tee -a -i /root/tcp_nanqinlang/install.log
+	 ;;
+	 start)
+     start_tcp_nanqinlang 2>&1 | tee -a -i /root/tcp_nanqinlang/start.log
+	 ;;
+	 status)
+     status_tcp_nanqinlang 2>&1 | tee -a -i /root/tcp_nanqinlang/status.log
+	 ;;
+	 upgrade)
+     upgrade_tcp_nanqinlang 2>&1 | tee -a -i /root/tcp_nanqinlang/upgrade.log
+	 ;;
+	 stop)
+     stop_tcp_nanqinlang 2>&1 | tee -a -i /root/tcp_nanqinlang/stop.log
+	 ;;
+	 *)
+	 echo -e "${Green_font}command: { install|start|status|upgrade|stop }${Font_suffix}"
+	 ;;
 esac
+#install|start|status|upgrade|stop)
