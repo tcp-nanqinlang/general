@@ -215,8 +215,8 @@ install_tcp_nanqinlang(){
 	
 	update-grub
 	
-	#enable tcp_nanqinlang via sysctl
-	echo -e "fs.file-max=65535
+#enable tcp_nanqinlang via sysctl
+echo -e "fs.file-max=65535
 net.core.wmem_default=34004432
 net.core.wmem_max=67108864
 net.core.rmem_default=34004432
@@ -250,11 +250,11 @@ net.ipv4.tcp_mtu_probing=1
 net.ipv4.tcp_fastopen=3
 net.core.default_qdisc=fq_codel
 net.ipv4.tcp_congestion_control=nanqinlang\c" > /etc/sysctl.conf
-	sysctl -p
-	
-	#reboot part
-	echo -e "${Careful} please remember reboot to apply kernel, and subsquently running this command: ${Start}"
-    exit
+sysctl -p
+
+#reboot part
+echo -e "${Careful} please remember reboot to apply kernel, and subsquently running this command: ${Start}"
+exit
 }
 
 #check running tcp_nanqinlang or not
@@ -288,6 +288,7 @@ start_tcp_nanqinlang(){
     sysctl -p
 	sleep 1s
 	tcp_nanqinlang_status
+	exit
 }
 
 #stop
@@ -297,18 +298,15 @@ stop_tcp_nanqinlang(){
 	rmmod tcp_nanqinlang.ko
 	sysctl -p
 	sleep 1s
-	stty erase '^H' && read -p "need reboot to stop tcp_nanqinlang, reboot now? [Y/n] :" yn
-	[ -z "${yn}" ] && yn="y"
-		if [[ $yn == [Yy] ]]; then
-		echo -e "${Info} rebooting..."
-		reboot
-		fi
+	echo -e "${Careful} please remember reboot to stop tcp_nanqinlang"
+	exit
 }
 
 #status
 status_tcp_nanqinlang(){
 	check_deb
 	tcp_nanqinlang_status
+	exit
 }
 
 action=$1
