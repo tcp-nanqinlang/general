@@ -70,7 +70,7 @@ del_image(){
 			echo -e "${Failed} uninstalling failed, please check!" && exit 1
 		fi
 	else
-		echo -e "${Error} find a wrong kernel number, please check!" && exit 1
+	echo -e "${Error} find a wrong kernel number, please check!" && exit 1
 	fi
 }
 
@@ -92,7 +92,7 @@ del_headers(){
 			echo -e "${Failed} uninstalling failed, please check!" && exit 1
 		fi
 	else
-		echo -e "${Error} find a wrong kernel number, please check!" && exit 1
+	echo -e "${Error} find a wrong kernel number, please check!" && exit 1
 	fi
 }
 
@@ -327,8 +327,4 @@ case "$action" in
 	Dispaly_Selection
     ${action}_tcp_nanqinlang 2>&1 | tee /root/tcp_nanqinlang.log
 	;;
-	echo "command not found"
-	echo "command: { install | start | stop | status }"
-	;;
 esac
-exit
