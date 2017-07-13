@@ -253,14 +253,8 @@ net.ipv4.tcp_congestion_control=nanqinlang\c" > /etc/sysctl.conf
 	sysctl -p
 	
 	#reboot part
-	echo -e "${Careful} after reboot, please running this command: ${Start}"
-	stty erase '^H' && read -p "need to reboot, reboot now ? [Y/n] :" yn
-	[ -z "${yn}" ] && yn="y"
-	if [[ $yn == [Yy] ]]; then
-	echo -e "${Info} rebooting..."
-	reboot
-	fi
-
+	echo -e "${Careful} please remember reboot to apply kernel, and subsquently running this command: ${Start}"
+    exit
 }
 
 #check running tcp_nanqinlang or not
@@ -320,9 +314,8 @@ status_tcp_nanqinlang(){
 action=$1
 [ -z $1 ] && action=install
 case "$action" in
-	install|start|stop|status)
-	${action}_tcp_nanqinlang
-	Dispaly_Selection
-    ${action}_tcp_nanqinlang 2>&1 | tee /root/tcp_nanqinlang.log
-	;;
+install|start|stop|status)
+${action}_tcp_nanqinlang
+${action}_tcp_nanqinlang 2>&1 | tee /root/tcp_nanqinlang.log
+;;
 esac
