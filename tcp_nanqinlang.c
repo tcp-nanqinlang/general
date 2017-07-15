@@ -110,7 +110,7 @@ static const int bbr_high_gain  = BBR_UNIT * 3000 / 1000 + 1;
 /* The pacing gain of 1/high_gain in BBR_DRAIN is calculated to typically drain
  * the queue created in BBR_STARTUP in a single round:
  */
-static const int bbr_drain_gain = BBR_UNIT * 800 / 2800;
+static const int bbr_drain_gain = BBR_UNIT *  800 / 2800;
 /* The gain for deriving steady-state cwnd tolerates delayed/stretched ACKs: */
 static const int bbr_cwnd_gain  = BBR_UNIT * 2;
 /* The pacing_gain values for the PROBE_BW gain cycle, to discover/share bw: */
@@ -871,7 +871,7 @@ static void bbr_set_state(struct sock *sk, u8 new_state)
 static struct tcp_congestion_ops tcp_bbr_cong_ops __read_mostly = {
 	.flags		= TCP_CONG_NON_RESTRICTED,
 	.name		= "nanqinlang",
-	.owner		= nanqinlang,
+	.owner		= THIS_MODULE,
 	.init		= bbr_init,
 	.cong_control	= bbr_main,
 	.sndbuf_expand	= bbr_sndbuf_expand,
@@ -896,3 +896,10 @@ static void __exit bbr_unregister(void)
 
 module_init(bbr_register);
 module_exit(bbr_unregister);
+
+MODULE_AUTHOR("Van Jacobson <vanj@google.com>");
+MODULE_AUTHOR("Neal Cardwell <ncardwell@google.com>");
+MODULE_AUTHOR("Yuchung Cheng <ycheng@google.com>");
+MODULE_AUTHOR("Soheil Hassas Yeganeh <soheil@google.com>");
+MODULE_LICENSE("Dual BSD/GPL");
+MODULE_DESCRIPTION("TCP BBR (Bottleneck Bandwidth and RTT)");
