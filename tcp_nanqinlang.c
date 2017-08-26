@@ -57,10 +57,8 @@ enum bbr_mode {
 /* BBR congestion control block */
 struct bbr {
 	u32	min_rtt_us;	        /* min RTT in min_rtt_win_sec window */
-//deprecated	u32	rtt_us;
 	u32	min_rtt_stamp;	        /* timestamp of min_rtt_us */
 	u32	probe_rtt_done_stamp;   /* end time for BBR_PROBE_RTT mode */
-//deprecated	struct minmax max_rtt;
 	struct minmax bw;	/* Max recent delivery rate in pkts/uS << 24 */
 	u32	rtt_cnt;	    /* count of packet-timed rounds elapsed */
 	u32     next_rtt_delivered; /* scb->tx.delivered at end of round */
@@ -901,5 +899,6 @@ MODULE_AUTHOR("Van Jacobson <vanj@google.com>");
 MODULE_AUTHOR("Neal Cardwell <ncardwell@google.com>");
 MODULE_AUTHOR("Yuchung Cheng <ycheng@google.com>");
 MODULE_AUTHOR("Soheil Hassas Yeganeh <soheil@google.com>");
+MODULE_AUTHOR("nanqinlang <www.nanqinlang.com>");
 MODULE_LICENSE("Dual BSD/GPL");
 MODULE_DESCRIPTION("TCP BBR (Bottleneck Bandwidth and RTT)");
