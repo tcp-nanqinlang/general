@@ -1,5 +1,7 @@
 /* Bottleneck Bandwidth and RTT (BBR) congestion control
- *
+ 
+ * Modified by @nanqinlang
+ 
  * BBR congestion control computes the sending rate based on the delivery
  * rate (throughput) estimated from ACKs. In a nutshell:
  *
@@ -830,15 +832,13 @@ static u32 bbr_ssthresh(struct sock *sk)
 	return TCP_INFINITE_SSTHRESH;	 /* BBR does not use ssthresh */
 }
 
-static size_t bbr_get_info(struct sock *sk, u32 ext, int *attr,
-			   union tcp_cc_info *info)
+static size_t bbr_get_info(struct sock *sk, u32 ext, int *attr, union tcp_cc_info *info)
 {
 	if (ext & (1 << (INET_DIAG_BBRINFO - 1)) ||
 	    ext & (1 << (INET_DIAG_VEGASINFO - 1))) {
 		struct tcp_sock *tp = tcp_sk(sk);
 		struct bbr *bbr = inet_csk_ca(sk);
 		u64 bw = bbr_bw(sk);
-
 		bw = bw * tp->mss_cache * USEC_PER_SEC >> BW_SCALE;
 		memset(&info->bbr, 0, sizeof(info->bbr));
 		info->bbr.bbr_bw_lo		= (u32)bw;
@@ -899,6 +899,6 @@ MODULE_AUTHOR("Van Jacobson <vanj@google.com>");
 MODULE_AUTHOR("Neal Cardwell <ncardwell@google.com>");
 MODULE_AUTHOR("Yuchung Cheng <ycheng@google.com>");
 MODULE_AUTHOR("Soheil Hassas Yeganeh <soheil@google.com>");
-MODULE_AUTHOR("nanqinlang <www.nanqinlang.com>");
+MODULE_AUTHOR("nanqinlang <https://www.nanqinlang.com>");
 MODULE_LICENSE("Dual BSD/GPL");
 MODULE_DESCRIPTION("TCP BBR (Bottleneck Bandwidth and RTT)");
