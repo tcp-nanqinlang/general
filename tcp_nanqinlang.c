@@ -1,7 +1,11 @@
 /* Bottleneck Bandwidth and RTT (BBR) congestion control
- 
- * Modified by @nanqinlang
- 
+
+ * tcp_nanqinlang
+
+ × New BBR Congestion Control
+
+ * Modified by (C) 2017 nanqinlang
+
  * BBR congestion control computes the sending rate based on the delivery
  * rate (throughput) estimated from ACKs. In a nutshell:
  *
@@ -58,14 +62,14 @@ enum bbr_mode {
 
 /* BBR congestion control block */
 struct bbr {
-	u32	min_rtt_us;	        /* min RTT in min_rtt_win_sec window */
+	u32	min_rtt_us;	        	/* min RTT in min_rtt_win_sec window */
 	u32	min_rtt_stamp;	        /* timestamp of min_rtt_us */
 	u32	probe_rtt_done_stamp;   /* end time for BBR_PROBE_RTT mode */
-	struct minmax bw;	/* Max recent delivery rate in pkts/uS << 24 */
-	u32	rtt_cnt;	    /* count of packet-timed rounds elapsed */
-	u32     next_rtt_delivered; /* scb->tx.delivered at end of round */
+	struct minmax bw;		 /* Max recent delivery rate in pkts/uS << 24 */
+	u32	rtt_cnt;	    	 /* count of packet-timed rounds elapsed */
+	u32 next_rtt_delivered;  /* scb->tx.delivered at end of round */
 	struct skb_mstamp cycle_mstamp;  /* time of this cycle phase start */
-	u32     mode:3,		     /* current bbr_mode in state machine */
+	u32	mode:3,		     	 /* current bbr_mode in state machine */
 		prev_ca_state:3,     /* CA state on previous ACK */
 		packet_conservation:1,  /* use packet conservation? */
 		restore_cwnd:1,	     /* decided to revert cwnd to old value */
@@ -145,7 +149,7 @@ static const u32 bbr_lt_bw_ratio = BBR_UNIT / 8;
 /* If 2 intervals have a bw diff <= 4 Kbit/sec their bw is "consistent": */
 static const u32 bbr_lt_bw_diff = 4000 / 8;
 /* If we estimate we're policed, use lt_bw for this many round trips: */
-static const u32 bbr_lt_bw_max_rtts = 40;
+static const u32 bbr_lt_bw_max_rtts = 64;
 
 /* Do we estimate that STARTUP filled the pipe? */
 static bool bbr_full_bw_reached(const struct sock *sk)
@@ -700,7 +704,6 @@ static void bbr_update_min_rtt(struct sock *sk, const struct rate_sample *rs)
 {
 	struct tcp_sock *tp = tcp_sk(sk);
 	struct bbr *bbr = inet_csk_ca(sk);
-//deprecated	u32 rtt_prior = 0;
 	bool filter_expired;
 
 	/* Track min RTT seen in the min_rtt_win_sec filter window: */
@@ -710,13 +713,7 @@ static void bbr_update_min_rtt(struct sock *sk, const struct rate_sample *rs)
 	    (rs->rtt_us <= bbr->min_rtt_us || filter_expired)) {
 		bbr->min_rtt_us = rs->rtt_us;
 		bbr->min_rtt_stamp = tcp_time_stamp;
-//deprecated		bbr->rtt_us = rs->rtt_us;
 	}
-//deprecated	bbr->rtt_us = rs->rtt_us;
-//deprecated	rtt_prior = minmax_get(&bbr->max_rtt);
-//deprecated	bbr->rtt_us = min(bbr->rtt_us, rtt_prior);
-  
-//deprecated	minmax_running_max(&bbr->max_rtt, bbr_bw_rtts, bbr->rtt_cnt, rs->rtt_us);
 
 	if (bbr_probe_rtt_mode_ms > 0 && filter_expired &&
 	    !bbr->idle_restart && bbr->mode != BBR_PROBE_RTT) {
@@ -867,18 +864,18 @@ static void bbr_set_state(struct sock *sk, u8 new_state)
 }
 
 static struct tcp_congestion_ops tcp_bbr_cong_ops __read_mostly = {
-	.flags		= TCP_CONG_NON_RESTRICTED,
-	.name		= "nanqinlang",
-	.owner		= THIS_MODULE,
-	.init		= bbr_init,
+	.flags			= TCP_CONG_NON_RESTRICTED,
+	.name			= "nanqinlang",
+	.owner			= THIS_MODULE,
+	.init			= bbr_init,
 	.cong_control	= bbr_main,
 	.sndbuf_expand	= bbr_sndbuf_expand,
-	.undo_cwnd	= bbr_undo_cwnd,
-	.cwnd_event	= bbr_cwnd_event,
-	.ssthresh	= bbr_ssthresh,
+	.undo_cwnd		= bbr_undo_cwnd,
+	.cwnd_event		= bbr_cwnd_event,
+	.ssthresh		= bbr_ssthresh,
 	.tso_segs_goal	= bbr_tso_segs_goal,
-	.get_info	= bbr_get_info,
-	.set_state	= bbr_set_state,
+	.get_info		= bbr_get_info,
+	.set_state		= bbr_set_state,
 };
 
 static int __init bbr_register(void)
@@ -899,6 +896,6 @@ MODULE_AUTHOR("Van Jacobson <vanj@google.com>");
 MODULE_AUTHOR("Neal Cardwell <ncardwell@google.com>");
 MODULE_AUTHOR("Yuchung Cheng <ycheng@google.com>");
 MODULE_AUTHOR("Soheil Hassas Yeganeh <soheil@google.com>");
-MODULE_AUTHOR("nanqinlang <https://www.nanqinlang.com>");
+MODULE_AUTHOR("Nanqinlang <https://www.nanqinlang.com>");
 MODULE_LICENSE("Dual BSD/GPL");
 MODULE_DESCRIPTION("TCP BBR (Bottleneck Bandwidth and RTT)");
