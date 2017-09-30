@@ -205,6 +205,7 @@ compiler(){
 	mkdir make && cd make
 	wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/tcp_nanqinlang.c
 
+	sys_ver=`grep -oE  "[0-9.]+" /etc/issue`
 	if [[ "${sys_ver}" = "9" ]]; then
 		wget -O Makefile https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/Makefile-debian9
 	else
@@ -214,7 +215,6 @@ compiler(){
 	make && make install
 }
 
-#check status
 check_status(){
 	status_sysctl=`sysctl net.ipv4.tcp_available_congestion_control | awk '{print $3}'`
 	status_lsmod=`lsmod | grep nanqinlang`
@@ -228,13 +228,10 @@ check_status(){
 	fi
 }
 
-#install
 install(){
-	#environment
 	check_system
 	check_root
 	check_ovz
-	#replace and apply
 	directory
 	gcc-4.9
 	check_kernel
@@ -242,7 +239,6 @@ install(){
 	echo -e "${Info} please check kernel version and ${reboot}, then run 'start' command to enable tcp_nanqinlang"
 }
 
-#start
 start(){
 	check_system
 	check_root
@@ -252,18 +248,16 @@ start(){
 	if [[ "${current_version}" = "4.10.2" ]]; then
 		ver_4.10.2
 	else
-		directory && ver_current
+		ver_current
 	fi
 	echo -e "\nnet.ipv4.tcp_congestion_control=nanqinlang\c" >> /etc/sysctl.conf && sysctl -p
 	check_status
 }
 
-#status
 status(){
 	check_status
 }
 
-#stop
 uninstall(){
 	sed -i '/net\.ipv4\.tcp_congestion_control=nanqinlang/d' /etc/sysctl.conf
 	sysctl -p
@@ -272,7 +266,6 @@ uninstall(){
 	echo -e "${Info} please remember ${reboot} to stop tcp_nanqinlang"
 }
 
-#${command}
 command=$1
 if [[ "${command}" = "" ]]; then
 	echo -e "${Info}command not found, usage: ${Green_font}{ install | start | status | uninstall }${Font_suffix}" && exit 0
