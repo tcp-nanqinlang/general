@@ -10,6 +10,11 @@ A `violent` tcp_bbr enhancement
 
 in that, the bash script only works with `Debian 7+`
 
+```bash
+wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.0/tcp_nanqinlang_3.0.sh
+bash tcp_nanqinlang_3.0.sh
+```
+
 ## according
 
 update details  
