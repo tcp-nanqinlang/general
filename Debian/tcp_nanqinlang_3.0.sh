@@ -267,7 +267,7 @@ uninstall(){
 
 
 echo -e "${Info} 选择你要使用的功能: "
-echo -e "1.更换内核版本\n2.安装并开启 tcp_nanqinlang\n3.检查 tcp_nanqinlang 运行状态\n4.卸载 tcp_nanqinlang"
+echo -e "1.安装内核\n2.安装并开启算法\n3.检查算法运行状态\n4.卸载算法"
 read -p "输入数字以选择:" function
 
 while [[ ! "${function}" =~ ^[1-4]$ ]]
