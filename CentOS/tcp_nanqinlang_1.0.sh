@@ -136,7 +136,7 @@ compile(){
 	[[ "${mode}" = "1" ]] && wget -O tcp_nanqinlang.c https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/c/tcp_nanqinlang-gentle.c
 	[[ "${mode}" = "2" ]] && wget -O tcp_nanqinlang.c https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/c/tcp_nanqinlang-violent.c
 
-	wget -O Makefile https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/Makefile/Makefile-CentOS
+	wget -O Makefile https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/Makefile/Makefile-CentOS7
 
 	make && make install
 	cd .. && rm -rf make
