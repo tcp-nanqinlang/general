@@ -36,7 +36,7 @@ directory(){
 
 get_version(){
 	echo -e "${Info} 输入你想要的内核版本号(默认安装 v4.10.10):"
-	read -p "(输入版本号 例如: 4.10.10):" required_version
+	read -p "(输入版本号，例如: 4.10.10):" required_version
 	[[ -z "${required_version}" ]] && required_version=4.10.10
 }
 
