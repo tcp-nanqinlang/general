@@ -12,13 +12,13 @@ in that, the bash script works with `Debian 7+` or `CentOS 6/7`
 
 ```bash
 # this is for Debian 7+
-wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/master/Debian/tcp_nanqinlang_3.0.sh
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/Debian/tcp_nanqinlang_3.0.sh
 bash tcp_nanqinlang_3.0.sh
 ```
 
 ```bash
 # this is for CentOS 6/7
-wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/tcp_nanqinlang_1.1.sh
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/tcp_nanqinlang_1.1.sh
 bash tcp_nanqinlang_1.1.sh
 ```
 
