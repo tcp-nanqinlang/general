@@ -149,7 +149,7 @@ start(){
 	check_ovz
 	directory
 	delete_surplus && grub2-mkconfig -o /boot/grub2/grub.cfg
-	yum update && yum groupinstall -y "Development Tools" && yum install -y perl-ExtUtils-Install libtool gcc gcc-c++
+	yum update && yum groupinstall -y "Development Tools" && yum install -y libtool gcc gcc-c++
 	maker
 	sed -i '/net\.ipv4\.tcp_congestion_control=nanqinlang/d' /etc/sysctl.conf
 	echo -e "\nnet.ipv4.tcp_congestion_control=nanqinlang\c" >> /etc/sysctl.conf && sysctl -p
