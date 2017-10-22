@@ -15,11 +15,11 @@ echo -e "${Green_font}
 
 check_system(){
 	cat /etc/issue | grep -q -E -i "debian" && release="debian"
-	[[ "${release}" = "debian" ]] && echo -e "${Error} only support Debian !" && exit 1
+	[[ "${release}" != "debian" ]] && echo -e "${Error} only support Debian !" && exit 1
 }
 
 check_root(){
-	[[ "`id -u`" = "0" ]] && echo -e "${Error} must be root user" && exit 1
+	[[ "`id -u`" != "0" ]] && echo -e "${Error} must be root user" && exit 1
 }
 
 #check ovz
