@@ -16,11 +16,7 @@ wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.0.1/tc
 bash tcp_nanqinlang_3.0.1.sh
 ```
 
-```bash
-# this is for CentOS 6/7
-wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/tcp_nanqinlang_1.1.1.sh
-bash tcp_nanqinlang_1.1.1.sh
-```
+as to `centos`, cause its bug i've never solved, now was reomved.
 
 ## according
 
