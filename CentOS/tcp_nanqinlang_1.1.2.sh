@@ -134,8 +134,8 @@ compile(){
 		echo -e "${Info} 请重新选择" && read -p "输入数字以选择:" mode
 	done
 
-	[[ "${mode}" = "1" ]] && wget -O tcp_nanqinlang.c https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/c/tcp_nanqinlang-gentle.c
-	[[ "${mode}" = "2" ]] && wget -O tcp_nanqinlang.c https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/c/tcp_nanqinlang-violent.c
+	[[ "${mode}" = "1" ]] && wget -O tcp_nanqinlang.c https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/source/tcp_nanqinlang-gentle.c
+	[[ "${mode}" = "2" ]] && wget -O tcp_nanqinlang.c https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/source/tcp_nanqinlang-violent.c
 
 	wget -O Makefile https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/Makefile/Makefile-CentOS
 
