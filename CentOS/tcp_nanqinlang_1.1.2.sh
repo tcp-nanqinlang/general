@@ -90,15 +90,15 @@ delete_surplus(){
 # http://elrepo.org/linux/kernel/el7/i386/RPMS (32 bit) (empty)
 # http://elrepo.org/linux/kernel/el7/x86_64/RPMS (64 bit)
 install_image(){
-	[[ ! -f kernel-ml-4.13.9-1.el${bit}.elrepo.x86_64.rpm ]] && wget http://elrepo.org/linux/kernel/el${bit}/x86_64/RPMS/kernel-ml-4.13.9-1.el${bit}.elrepo.x86_64.rpm
+	[[ ! -f kernel-ml-4.13.9-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/kernel/kernel-ml-4.13.9-1.el${bit}.elrepo.x86_64.rpm
 	yum  install -y kernel-ml-4.13.9-1.el${bit}.elrepo.x86_64.rpm
 }
 install_devel(){
-	[[ ! -f kernel-ml-devel-4.13.9-1.el${bit}.elrepo.x86_64.rpm ]] && wget http://elrepo.org/linux/kernel/el${bit}/x86_64/RPMS/kernel-ml-devel-4.13.9-1.el${bit}.elrepo.x86_64.rpm
+	[[ ! -f kernel-ml-devel-4.13.9-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/kernel/kernel-ml-devel-4.13.9-1.el${bit}.elrepo.x86_64.rpm
 	yum  install -y kernel-ml-devel-4.13.9-1.el${bit}.elrepo.x86_64.rpm
 }
 install_headers(){
-	[[ ! -f kernel-ml-headers-4.13.9-1.el${bit}.elrepo.x86_64.rpm ]] && wget http://elrepo.org/linux/kernel/el${bit}/x86_64/RPMS/kernel-ml-headers-4.13.9-1.el${bit}.elrepo.x86_64.rpm
+	[[ ! -f kernel-ml-headers-4.13.9-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/kernel/kernel-ml-headers-4.13.9-1.el${bit}.elrepo.x86_64.rpm
 	yum  install -y kernel-ml-headers-4.13.9-1.el${bit}.elrepo.x86_64.rpm
 }
 
