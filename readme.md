@@ -16,7 +16,7 @@ wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.0.1/tc
 bash tcp_nanqinlang_3.0.1.sh
 ```
 
-as to `centos`, cause its bug i've never solved, now was reomved.
+as to `centos`, cause its bug i've never solved, now was removed.
 
 ## according
 
