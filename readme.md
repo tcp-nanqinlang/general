@@ -8,7 +8,7 @@
 
 A `violent` tcp_bbr enhancement
 
-in that, the bash script works with `Debian 7+` or `CentOS 6/7`
+in that, the bash script works with `Debian 7+` ~~or `CentOS 6/7`~~
 
 ```bash
 # this is for Debian 7+
