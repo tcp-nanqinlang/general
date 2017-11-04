@@ -6,21 +6,46 @@
 [![author](https://github.com/nanqinlang/SVG/blob/master/author-nanqinlang-lightgrey.svg)](https://github.com/nanqinlang-tcp/tcp_nanqinlang)
 [![license](https://github.com/nanqinlang/SVG/blob/master/license-GPLv3-orange.svg)](https://github.com/nanqinlang-tcp/tcp_nanqinlang)
 
-A `violent` tcp_bbr enhancement
+A tcp_bbr enhancement with `violence`
 
-in that, the bash script works with `Debian 7+` ~~or `CentOS 6/7`~~
+for that, the script works with `multi platform`
 
+## Debian
+for `Debian`, it's already a stable version cuz long-time update.
 ```bash
-# this is for Debian 7+
-wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.0.1/tcp_nanqinlang_3.0.1.sh
-bash tcp_nanqinlang_3.0.1.sh
+# Debian 7+
+# 32 or 64 bit
+# KVM
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/Debian/tcp_nanqinlang_3.0.sh
+bash tcp_nanqinlang_3.0.sh
 ```
 
-as to `centos`, cause its bug i've never solved, now was removed.
+## CentOS
+for `CentOS`, it's a `devel` version, please do not use it with important environment.
+```bash
+# CentOS 6/7
+# 64 bit
+# KVM
+# devel
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/tcp_nanqinlang_1.1.sh
+bash tcp_nanqinlang_1.1.sh
+```
+
+## LKL
+for `OpenVZ` via `LKL`, it's also a `devel` version, please do not use it with important environment.
+```bash
+# Debian 7+
+# 64 bit
+# ldd > = 2.14
+# OpenVZ
+# devel
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/lkl/tcp_nanqinlang-lkl-1.0.sh
+bash tcp_nanqinlang-lkl-1.0.sh
+```
 
 ## according
 
-update details  
+Update Details  
 https://github.com/nanqinlang/tcp_nanqinlang/releases
 
 中文文档  
