@@ -16,8 +16,8 @@ for `Debian`, it's already a stable version cuz long-time update.
 # Debian 7+
 # 32 or 64 bit
 # KVM
-wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/Debian/tcp_nanqinlang_3.0.sh
-bash tcp_nanqinlang_3.0.sh
+wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.0.1/tcp_nanqinlang_3.0.1.sh
+bash tcp_nanqinlang_3.0.1.sh
 ```
 
 ## CentOS
@@ -27,8 +27,8 @@ for `CentOS`, it's a `devel` version, please do not use it with important enviro
 # 64 bit
 # KVM
 # devel
-wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/master/CentOS/tcp_nanqinlang_1.1.sh
-bash tcp_nanqinlang_1.1.sh
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/tcp_nanqinlang_1.1.3.sh
+bash tcp_nanqinlang_1.1.3.sh
 ```
 
 ## LKL
