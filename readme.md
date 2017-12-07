@@ -16,8 +16,20 @@ for `Debian`, it's already a stable version cuz long-time update.
 # Debian 7+
 # 32 or 64 bit
 # KVM
-wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.1/tcp_nanqinlang_3.1.sh
-bash tcp_nanqinlang_3.1.sh
+# pro
+wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.2.1/tcp_nanqinlang-3.2.1.sh
+bash tcp_nanqinlang-3.2.1.sh
+```
+
+or
+
+```bash
+# Debian 7+
+# 32 or 64 bit
+# KVM
+# fool
+wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.2.1/tcp_nanqinlang-fool-1.0.1.sh
+bash tcp_nanqinlang-fool-1.0.1.sh
 ```
 
 ## CentOS
@@ -27,8 +39,8 @@ for `CentOS`, it's a `devel` version, please do not use it with important enviro
 # 64 bit
 # KVM
 # devel
-wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/tcp_nanqinlang_1.1.3.sh
-bash tcp_nanqinlang_1.1.3.sh
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/tcp_nanqinlang-1.2.0.sh
+bash tcp_nanqinlang-1.2.0.sh
 ```
 
 ## LKL
@@ -39,8 +51,8 @@ for `OpenVZ` via `LKL`, it's also a `devel` version, please do not use it with i
 # ldd > = 2.14
 # OpenVZ
 # devel
-wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/lkl/tcp_nanqinlang-lkl-1.0.sh
-bash tcp_nanqinlang-lkl-1.0.sh
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/lkl/tcp_nanqinlang-lkl-debian-1.0.1.sh
+bash tcp_nanqinlang-lkl-debian-1.0.1.sh
 ```
 
 ## according
