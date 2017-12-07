@@ -61,4 +61,4 @@ Update Details
 https://github.com/nanqinlang/tcp_nanqinlang/releases
 
 中文文档  
-https://sometimesnaive.org/shell-tcp_nanqinlang.html
+https://sometimesnaive.org/article/linux/bash/tcp_nanqinlang.html
