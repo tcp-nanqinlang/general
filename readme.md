@@ -8,28 +8,31 @@
 
 A tcp_bbr enhancement with `violence`
 
-for that, the script works with `multi platform`
+as this will, the script works with `multi platform`
 
 ## Debian
-for `Debian`, it's already a stable version cuz long-time update.
-```bash
-# Debian 7+
-# 32 or 64 bit
-# KVM
-# pro
-wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.2.1/tcp_nanqinlang-3.2.1.sh
-bash tcp_nanqinlang-3.2.1.sh
-```
+for `Debian`, it's already a stable version cuz long-time maintenance：
 
-or
-
+### fool
+it's a version for users with less knowledges
 ```bash
 # Debian 7+
 # 32 or 64 bit
 # KVM
 # fool
-wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.2.1/tcp_nanqinlang-fool-1.0.1.sh
-bash tcp_nanqinlang-fool-1.0.1.sh
+wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.3.0/tcp_nanqinlang-fool-1.1.0.sh
+bash tcp_nanqinlang-fool-1.1.0.sh
+```
+
+### pro
+it's a version for users who already have a little bit of capability
+```bash
+# Debian 7+
+# 32 or 64 bit
+# KVM
+# pro
+wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.3.0/tcp_nanqinlang-pro-3.3.0.sh
+bash tcp_nanqinlang-pro-3.3.0.sh
 ```
 
 ## CentOS
@@ -39,8 +42,8 @@ for `CentOS`, it's a `devel` version, please do not use it with important enviro
 # 64 bit
 # KVM
 # devel
-wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/tcp_nanqinlang-1.2.0.sh
-bash tcp_nanqinlang-1.2.0.sh
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/tcp_nanqinlang-1.3.0.sh
+bash tcp_nanqinlang-1.3.0.sh
 ```
 
 ## LKL
@@ -56,8 +59,7 @@ bash tcp_nanqinlang-lkl-debian-1.0.1.sh
 ```
 
 ## according
-
-Update Details  
+Update History  
 https://github.com/nanqinlang/tcp_nanqinlang/releases
 
 中文文档  
