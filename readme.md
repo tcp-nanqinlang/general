@@ -20,8 +20,8 @@ it's a version for users with less knowledges
 # 32 or 64 bit
 # KVM
 # fool
-wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.4.1/tcp_nanqinlang-fool-1.2.1.sh
-bash tcp_nanqinlang-fool-1.2.1.sh
+wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.4.2/tcp_nanqinlang-fool-1.2.2.sh
+bash tcp_nanqinlang-fool-1.2.2.sh
 ```
 
 ### pro
@@ -31,8 +31,8 @@ it's a version for users who already have a little bit of capability
 # 32 or 64 bit
 # KVM
 # pro
-wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.4.1/tcp_nanqinlang-pro-3.4.1.sh
-bash tcp_nanqinlang-pro-3.4.1.sh
+wget https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases/download/3.4.2/tcp_nanqinlang-pro-3.4.2.sh
+bash tcp_nanqinlang-pro-3.4.2.sh
 ```
 
 ## CentOS
@@ -42,8 +42,8 @@ for `CentOS`, it's a `devel` version, please do not use it with important enviro
 # 64 bit
 # KVM
 # devel
-wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/tcp_nanqinlang-1.3.1.sh
-bash tcp_nanqinlang-1.3.1.sh
+wget https://raw.githubusercontent.com/nanqinlang-tcp/tcp_nanqinlang/devel/CentOS/tcp_nanqinlang-1.3.2.sh
+bash tcp_nanqinlang-1.3.2.sh
 ```
 
 ## LKL
