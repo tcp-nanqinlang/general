@@ -14,7 +14,7 @@ as this will, the script works with `multi platform`
 for `Debian`, it's already a stable version cuz long-time maintenance：
 
 ### fool
-it's a version for users with less knowledges
+it's a version for users with less relative knowledge
 ```bash
 # Debian 7+
 # 32 or 64 bit
@@ -25,7 +25,7 @@ bash tcp_nanqinlang-fool-1.2.2.sh
 ```
 
 ### pro
-it's a version for users who already have a little bit of capability
+it's a version for users with some relative knowledge
 ```bash
 # Debian 7+
 # 32 or 64 bit
