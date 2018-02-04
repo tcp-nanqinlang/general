@@ -23,9 +23,9 @@ for `CentOS`, it's a `devel` version, please do not use it with important enviro
 ## OpenVZ
 for openvz, there are two solution :
 ### LKL
-for `OpenVZ` via `LKL`, it's also a `devel` version, please do not use it with important environment.
+for `OpenVZ` via `lkl`, it's also a `devel` version, please do not use it with important environment.
 ### Rinetd
-for `OpenVZ` via `LKL`, it's also a `devel` version, please do not use it with important environment.
+for `OpenVZ` via `rinetd`, it's also a `devel` version, please do not use it with important environment.
 
 ## according
 Update History  
