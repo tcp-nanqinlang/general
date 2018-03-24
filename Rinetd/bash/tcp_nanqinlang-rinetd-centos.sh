@@ -5,7 +5,7 @@ Error="${Red_font}[Error]${Font_suffix}"
 echo -e "${Green_font}
 #===============================================
 # Project: tcp_nanqinlang
-# Description: tcp_nanqinlang -centos -rinetd
+# Description: --centos --rinetd --singleNIC
 # Version: based on linhua's origin
 # Origin: https://github.com/linhua55/lkl_study
 # Author: linhua && nanqinlang
