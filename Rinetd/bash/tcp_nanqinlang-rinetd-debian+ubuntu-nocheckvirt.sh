@@ -88,7 +88,7 @@ run-it-now(){
 install(){
 	check_system
 	check_root
-	check_ovz
+	#check_ovz
 	check_requirement
 	directory
 	download
