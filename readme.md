@@ -32,4 +32,4 @@ Update History
 https://github.com/nanqinlang/tcp_nanqinlang/releases
 
 中文文档  
-https://sometimesnaive.org/article/linux/bash/tcp_nanqinlang
+https://sometimesnaive.org/article/37
