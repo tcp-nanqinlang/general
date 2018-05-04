@@ -4,12 +4,12 @@ Info="${Green_font}[Info]${Font_suffix}"
 Error="${Red_font}[Error]${Font_suffix}"
 echo -e "${Green_font}
 #======================================================
-# Project: tcp_nanqinlang
-# Description: tcp bbr enhancement -CentOS 6/7 64bit
-# Version: 1.3.2
-# Author: nanqinlang
-# Blog:   https://sometimesnaive.org
-# Github: https://github.com/nanqinlang
+# Project:  tcp_nanqinlang general
+# Platform: --CentOS_6/7_64bit --KVM
+# Version:  1.3.2
+# Author:   nanqinlang
+# Blog:     https://sometimesnaive.org
+# Github:   https://github.com/nanqinlang
 #======================================================${Font_suffix}"
 
 check_system(){
