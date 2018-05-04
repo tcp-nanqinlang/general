@@ -10,26 +10,9 @@ A tcp_bbr enhancement with `violence`
 
 as this will, the script works with `multi platform`
 
-## Debian
-for `Debian`, it's already a stable version cuz long-time maintenance：
-### fool
-it's a version for users with less relative knowledge
-### pro
-it's a version for users with some relative knowledge
-
-## CentOS
-for `CentOS`, it's a `devel` version, please do not use it with important environment.
-
-## OpenVZ
-for openvz, there are two solution :
-### LKL
-for `OpenVZ` via `lkl`, it's also a `devel` version, please do not use it with important environment.
-### Rinetd
-for `OpenVZ` via `rinetd`, it's also a `devel` version, please do not use it with important environment.
-
 ## according
 Update History  
-https://github.com/nanqinlang/tcp_nanqinlang/releases
+https://github.com/nanqinlang-tcp/tcp_nanqinlang/releases
 
 中文文档  
 https://sometimesnaive.org/article/37
