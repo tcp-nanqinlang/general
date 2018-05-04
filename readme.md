@@ -8,7 +8,7 @@
 
 A tcp_bbr enhancement with `violence`
 
-as this will, the script works with `multi platform`
+as this will, the script works with `KVM or higher`
 
 ## according
 Update History  
