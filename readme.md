@@ -15,4 +15,4 @@ Update History
 https://github.com/tcp-nanqinlang/general/releases
 
 中文文档  
-https://sometimesnaive.org/article/37
+https://github.com/tcp-nanqinlang/wiki/wiki/general
