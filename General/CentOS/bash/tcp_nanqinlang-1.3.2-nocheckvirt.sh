@@ -100,19 +100,19 @@ delete_surplus_2(){
 # my backup: https://github.com/nanqinlang/CentOS-kernel
 install_image(){
 	#[[ ! -f kernel-ml-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget http://elrepo.mirror.angkasa.id/elrepo/archive/kernel/el${bit}/x86_64/RPMS/kernel-ml-4.12.10-1.el${bit}.elrepo.x86_64.rpm
-	[[ ! -f kernel-ml-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/nanqinlang/CentOS-kernel/master/kernel-ml-4.12.10-1.el${bit}.elrepo.x86_64.rpm
+	[[ ! -f kernel-ml-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/tcp-nanqinlang/CentOS-kernel/master/kernel-ml-4.12.10-1.el${bit}.elrepo.x86_64.rpm
 	[[ ! -f kernel-ml-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && echo -e "${Error} ==image download failed, please check !" && exit 1
 	yum  install -y kernel-ml-4.12.10-1.el${bit}.elrepo.x86_64.rpm
 }
 install_devel(){
 	#[[ ! -f kernel-ml-devel-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget http://elrepo.mirror.angkasa.id/elrepo/archive/kernel/el${bit}/x86_64/RPMS/kernel-ml-devel-4.12.10-1.el${bit}.elrepo.x86_64.rpm
-	[[ ! -f kernel-ml-devel-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/nanqinlang/CentOS-kernel/master/kernel-ml-devel-4.12.10-1.el${bit}.elrepo.x86_64.rpm
+	[[ ! -f kernel-ml-devel-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/tcp-nanqinlang/CentOS-kernel/master/kernel-ml-devel-4.12.10-1.el${bit}.elrepo.x86_64.rpm
 	[[ ! -f kernel-ml-devel-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && echo -e "${Error} devel download failed, please check !" && exit 1
 	yum  install -y kernel-ml-devel-4.12.10-1.el${bit}.elrepo.x86_64.rpm
 }
 install_headers(){
 	#[[ ! -f kernel-ml-headers-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget http://elrepo.mirror.angkasa.id/elrepo/archive/kernel/el${bit}/x86_64/RPMS/kernel-ml-headers-4.12.10-1.el${bit}.elrepo.x86_64.rpm
-	[[ ! -f kernel-ml-headers-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/nanqinlang/CentOS-kernel/master/kernel-ml-headers-4.12.10-1.el${bit}.elrepo.x86_64.rpm
+	[[ ! -f kernel-ml-headers-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && wget https://raw.githubusercontent.com/tcp-nanqinlang/CentOS-kernel/master/kernel-ml-headers-4.12.10-1.el${bit}.elrepo.x86_64.rpm
 	[[ ! -f kernel-ml-headers-4.12.10-1.el${bit}.elrepo.x86_64.rpm ]] && echo -e "${Error} headers download failed, please check !" && exit 1
 	yum  install -y kernel-ml-headers-4.12.10-1.el${bit}.elrepo.x86_64.rpm
 }
